@@ -20,4 +20,3 @@ class LambdaStack(Stack):
 
         # Hello
         HelloConfig(self.services)
-        HelloConfig(self.services)
