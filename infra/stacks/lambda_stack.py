@@ -1,5 +1,4 @@
 from functions.hello.config import HelloConfig
-from functions.hello.config import HelloConfig
 from docs.config import DocsConfig
 from aws_cdk import Stack
 from constructs import Construct
