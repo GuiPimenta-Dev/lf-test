@@ -30,7 +30,7 @@ class Steps:
         return self.codebuild.create_step(
             name="UnitTests",
             commands=['pytest --junitxml=test-results.xml -k "unit.py"'],
-            report_group=report_group,
+            # report_group=report_group,
         )
 
     def run_coverage(self):
@@ -44,7 +44,7 @@ class Steps:
 
         return self.codebuild.create_step(
             name="Coverage",
-            report_group=report_group,
+            # report_group=report_group,
             commands=[
                 'coverage run -m pytest -k "unit.py"',
                 f"coverage xml --fail-under={self.context.coverage}",
@@ -82,7 +82,7 @@ class Steps:
 
         return self.codebuild.create_step(
             name="IntegrationTests",
-            report_group=report_group,
+            # report_group=report_group,
             commands=['pytest --junitxml=test-results.xml -k "integration.py"'],
         )
 
