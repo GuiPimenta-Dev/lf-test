@@ -1,4 +1,5 @@
 from functions.hello.config import HelloConfig
+from functions.hello.config import HelloConfig
 from docs.config import DocsConfig
 from aws_cdk import Stack
 from constructs import Construct
@@ -18,4 +19,5 @@ class LambdaStack(Stack):
         DocsConfig(self.services)
 
         # Hello
+        HelloConfig(self.services)
         HelloConfig(self.services)

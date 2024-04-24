@@ -10,6 +10,6 @@ class HelloConfig:
             
         )
 
-        services.api_gateway.create_endpoint("GET", "/hello", function, public=True)
+        services.api_gateway.create_endpoint("GET", "/hello", function)
 
             
