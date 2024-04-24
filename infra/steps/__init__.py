@@ -20,31 +20,15 @@ class Steps:
 
     def run_unit_tests(self):
         
-        report_group = {
-            "name": "UnitTestsReport",
-            "files": "test-results.xml",
-            "file_format": "JUNITXML",
-            "file_type": "test",
-        }
-        
         return self.codebuild.create_step(
             name="UnitTests",
             commands=['pytest --junitxml=test-results.xml -k "unit.py"'],
-            # report_group=report_group,
         )
 
     def run_coverage(self):
-        
-        report_group = {
-            "name": "CoverageReport",
-            "files": "coverage.xml",
-            "file_format": "COBERTURAXML",
-            "file_type": "coverage",
-        }
-
+   
         return self.codebuild.create_step(
             name="Coverage",
-            # report_group=report_group,
             commands=[
                 'coverage run -m pytest -k "unit.py"',
                 f"coverage xml --fail-under={self.context.coverage}",
@@ -73,16 +57,8 @@ class Steps:
 
     def run_integration_tests(self):
         
-        report_group = {
-            "name": "IntegrationTestsReport",
-            "files": "test-results.xml",
-            "file_format": "JUNITXML",
-            "file_type": "test",
-        }
-
         return self.codebuild.create_step(
             name="IntegrationTests",
-            # report_group=report_group,
             commands=['pytest --junitxml=test-results.xml -k "integration.py"'],
         )
 
